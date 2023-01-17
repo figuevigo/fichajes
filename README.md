@@ -151,7 +151,3 @@ Por ejemplo http://localhost:8080/api/fichajes/222222222/semana/2018-01-01
 
 Se ha creado un Test que actua como cliente y nos permite cargar los fichajes de los ficheros de prueba. Si levantamos la aplicación y ejecutamos el test 
 com.jcromero.fichajes.client.FichajesRestClient.sendFichajesDesdeFiles como Run As > JUnit Test se cargan los dos ficheros de ejemplo facilitados.
-
-## A completar
-* No se está haciendo el cálculo de las horas efectivas de trabajo.
-* No se están validando las reglas de negocio salvo que los fichajes de una jornada estén completos.
