@@ -76,12 +76,20 @@ class FichajeServiceImpl implements FichajeService {
 
     private void aplicarValidators(Semana semana) {
         for(Jornada jornada : semana.getJornadasSemana().values()) {
-            for(ValidationJornadaService service : validators) {
-                Optional<Alerta> alerta = service.validar(jornada);
-                if (alerta.isPresent()) {
-                    semana.addAlerta(alerta.get());
-                }
-            }
+            aplicarValidator(semana, jornada);
+        }
+    }
+
+    private void aplicarValidator(Semana semana, Jornada jornada) {
+        for(ValidationJornadaService service : validators) {
+            aplicarValidator(semana, jornada, service);
+        }
+    }
+
+    private void aplicarValidator(Semana semana, Jornada jornada, ValidationJornadaService service) {
+        Optional<Alerta> alerta = service.validar(jornada);
+        if (alerta.isPresent()) {
+            semana.addAlerta(alerta.get());
         }
     }
 }
