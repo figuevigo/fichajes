@@ -29,8 +29,9 @@ las horas están a null porque para la semana en curso no tiene ningún fichaje.
             "horaFinManhana": null,
             "horaInicioTarde": null,
             "horaFin": null,
-            "correcta": false,
-            "completa": false
+            "tiempoTrabajoEfectivo": "PT0S",
+            "completa": false,
+            "correcta": false
         },
         "2023-01-19": {
             "fecha": "2023-01-19",
@@ -40,8 +41,9 @@ las horas están a null porque para la semana en curso no tiene ningún fichaje.
             "horaFinManhana": null,
             "horaInicioTarde": null,
             "horaFin": null,
-            "correcta": false,
-            "completa": false
+            "tiempoTrabajoEfectivo": "PT0S",
+            "completa": false,
+            "correcta": false
         },
         "2023-01-18": {
             "fecha": "2023-01-18",
@@ -51,8 +53,9 @@ las horas están a null porque para la semana en curso no tiene ningún fichaje.
             "horaFinManhana": null,
             "horaInicioTarde": null,
             "horaFin": null,
-            "correcta": false,
-            "completa": false
+            "tiempoTrabajoEfectivo": "PT0S",
+            "completa": false,
+            "correcta": false
         },
         "2023-01-17": {
             "fecha": "2023-01-17",
@@ -62,8 +65,9 @@ las horas están a null porque para la semana en curso no tiene ningún fichaje.
             "horaFinManhana": null,
             "horaInicioTarde": null,
             "horaFin": null,
-            "correcta": false,
-            "completa": false
+            "tiempoTrabajoEfectivo": "PT0S",
+            "completa": false,
+            "correcta": false
         },
         "2023-01-16": {
             "fecha": "2023-01-16",
@@ -73,12 +77,36 @@ las horas están a null porque para la semana en curso no tiene ningún fichaje.
             "horaFinManhana": null,
             "horaInicioTarde": null,
             "horaFin": null,
-            "correcta": false,
-            "completa": false
+            "tiempoTrabajoEfectivo": "PT0S",
+            "completa": false,
+            "correcta": false
         }
     },
     "fechaInicio": "2023-01-16T00:00:00Z",
-    "fechaFin": "2023-01-20T23:59:59.999Z"
+    "fechaFin": "2023-01-20T23:59:59.999Z",
+    "tiempoTrabajoEfectivoSemanal": "PT0S",
+    "alertas": [
+        {
+            "codigo": "001",
+            "descripcion": "Jornada 2023-01-20 incompleta."
+        },
+        {
+            "codigo": "001",
+            "descripcion": "Jornada 2023-01-19 incompleta."
+        },
+        {
+            "codigo": "001",
+            "descripcion": "Jornada 2023-01-18 incompleta."
+        },
+        {
+            "codigo": "001",
+            "descripcion": "Jornada 2023-01-17 incompleta."
+        },
+        {
+            "codigo": "001",
+            "descripcion": "Jornada 2023-01-16 incompleta."
+        }
+    ]
 }
 ```
 * GET http://localhost:8080/api/fichajes/{empleado}/semana/{fecha} Recupera una estructura JSon con la información agregada de los fichajes de la semana de un empleado 
@@ -95,8 +123,9 @@ Por ejemplo http://localhost:8080/api/fichajes/222222222/semana/2018-01-01
             "horaFinManhana": "13:30:00",
             "horaInicioTarde": "15:00:00",
             "horaFin": "18:00:00",
-            "correcta": false,
-            "completa": false
+            "tiempoTrabajoEfectivo": "PT8H30M",
+            "completa": false,
+            "correcta": false
         },
         "2018-01-04": {
             "fecha": "2018-01-04",
@@ -106,8 +135,9 @@ Por ejemplo http://localhost:8080/api/fichajes/222222222/semana/2018-01-01
             "horaFinManhana": "13:30:00",
             "horaInicioTarde": "15:00:00",
             "horaFin": "18:00:00",
-            "correcta": true,
-            "completa": true
+            "tiempoTrabajoEfectivo": "PT8H15M",
+            "completa": true,
+            "correcta": true
         },
         "2018-01-03": {
             "fecha": "2018-01-03",
@@ -117,8 +147,9 @@ Por ejemplo http://localhost:8080/api/fichajes/222222222/semana/2018-01-01
             "horaFinManhana": "13:30:00",
             "horaInicioTarde": "15:00:00",
             "horaFin": "18:00:00",
-            "correcta": true,
-            "completa": true
+            "tiempoTrabajoEfectivo": "PT8H15M",
+            "completa": true,
+            "correcta": true
         },
         "2018-01-02": {
             "fecha": "2018-01-02",
@@ -128,8 +159,9 @@ Por ejemplo http://localhost:8080/api/fichajes/222222222/semana/2018-01-01
             "horaFinManhana": "13:30:00",
             "horaInicioTarde": "15:00:00",
             "horaFin": "18:00:00",
-            "correcta": true,
-            "completa": true
+            "tiempoTrabajoEfectivo": "PT8H15M",
+            "completa": true,
+            "correcta": true
         },
         "2018-01-01": {
             "fecha": "2018-01-01",
@@ -139,15 +171,27 @@ Por ejemplo http://localhost:8080/api/fichajes/222222222/semana/2018-01-01
             "horaFinManhana": "13:30:00",
             "horaInicioTarde": "15:00:00",
             "horaFin": "18:00:00",
-            "correcta": false,
-            "completa": false
+            "tiempoTrabajoEfectivo": "PT8H30M",
+            "completa": false,
+            "correcta": false
         }
     },
     "fechaInicio": "2018-01-01T00:00:00Z",
-    "fechaFin": "2018-01-05T23:59:59.999Z"
+    "fechaFin": "2018-01-05T23:59:59.999Z",
+    "tiempoTrabajoEfectivoSemanal": "PT41H45M",
+    "alertas": [
+        {
+            "codigo": "001",
+            "descripcion": "Jornada 2018-01-05 incompleta."
+        },
+        {
+            "codigo": "001",
+            "descripcion": "Jornada 2018-01-01 incompleta."
+        }
+    ]
 }
 ```
 
 
-Se ha creado un Test que actua como cliente y nos permite cargar los fichajes de los ficheros de prueba. Si levantamos la aplicación y ejecutamos el test 
+Se ha creado un Test que actúa como cliente y nos permite cargar los fichajes de los ficheros de prueba. Si levantamos la aplicación y ejecutamos el test 
 com.jcromero.fichajes.client.FichajesRestClient.sendFichajesDesdeFiles como Run As > JUnit Test se cargan los dos ficheros de ejemplo facilitados.

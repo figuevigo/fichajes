@@ -18,7 +18,7 @@ class HoraEntradaMinimaValidationJornadaService implements ValidationJornadaServ
         if (jornada.getFecha().getDayOfWeek().equals(DayOfWeek.FRIDAY)) {
             horaMinima = HORA_ENTRADA_MINIMA_VIERNES;
         }
-        if (horaMinima.compareTo(jornada.getHoraInicio()) <= 0) {
+        if ( (jornada.getHoraInicio() == null) || (horaMinima.compareTo(jornada.getHoraInicio()) <= 0)) {
             return Optional.empty();
         } else {
             String mensaje = String.format("La hora de inicio de la Jornada %1$s es anterior a la hora mínima de fichaje.", jornada.getFecha().toString());
