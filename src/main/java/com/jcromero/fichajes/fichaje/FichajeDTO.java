@@ -9,6 +9,7 @@ public class FichajeDTO {
     private RecordType recordType;
     private String serviceId;
     private FichajeType type;
+    
     public Long getBusinessId() {
         return businessId;
     }

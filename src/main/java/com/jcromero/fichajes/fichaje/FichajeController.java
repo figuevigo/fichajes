@@ -41,7 +41,7 @@ class FichajeController {
     }   
     
     @GetMapping("/fichajes/{empleado}/semana")
-    public Semana getFichajesSemanaActualEmpelado(@PathVariable String empleado) {
+    public Semana getFichajesSemanaActualEmpleado(@PathVariable String empleado) {
         return service.getFichajesSemanaEnCursoEmpleado(empleado); 
     }       
     

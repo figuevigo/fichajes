@@ -2,6 +2,7 @@ package com.jcromero.fichajes.fichaje;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 import java.util.stream.Collectors;
 
 import org.springframework.beans.factory.annotation.Autowired;
@@ -13,6 +14,9 @@ class FichajeServiceImpl implements FichajeService {
     
     @Autowired
     FichajeRepository repository;
+    
+    @Autowired
+    List<ValidationJornadaService> validators;    
 
     @Override
     public Long addFichaje(FichajeDTO fichaje) throws FichajeException {
@@ -66,6 +70,18 @@ class FichajeServiceImpl implements FichajeService {
         Semana semana = Semana.buildFor(diaSemana);
         List<Fichaje> fichajesSemanalesEmpleado = repository.findByEmployeeIdAndDate(empleado, semana.getFechaInicio(), semana.getFechaFin());
         semana.fillSemanaWithFichajes(fichajesSemanalesEmpleado);
+        aplicarValidators(semana);
         return semana;
+    }
+
+    private void aplicarValidators(Semana semana) {
+        for(Jornada jornada : semana.getJornadasSemana().values()) {
+            for(ValidationJornadaService service : validators) {
+                Optional<Alerta> alerta = service.validar(jornada);
+                if (alerta.isPresent()) {
+                    semana.addAlerta(alerta.get());
+                }
+            }
+        }
     }
 }

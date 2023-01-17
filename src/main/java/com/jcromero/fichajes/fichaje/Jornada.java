@@ -1,5 +1,6 @@
 package com.jcromero.fichajes.fichaje;
 
+import java.time.Duration;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
@@ -11,6 +12,7 @@ class Jornada {
     private LocalTime horaFinManhana;
     private LocalTime horaInicioTarde;
     private LocalTime horaFin;
+    private Duration  tiempoTrabajoEfectivo = Duration.ZERO;
     
     public LocalDate getFecha() {
         return fecha;
@@ -89,6 +91,25 @@ class Jornada {
         return (inicio != null && fin != null);
     }
     private boolean isPeriodoCorrecto(LocalTime inicio, LocalTime fin) {
-        return (inicio.isBefore(fin));
+        return isPeriodoCompleto(inicio, fin) && (inicio.isBefore(fin));
+    }
+    
+    public Duration getTiempoTrabajoEfectivo() {
+        calculaTiempoTrabajoEfectivo();
+        return tiempoTrabajoEfectivo;
+    }
+    
+    private void calculaTiempoTrabajoEfectivo() {
+        Duration duracion = Duration.ZERO;
+        if (isManhanaCorrecta()) {
+            duracion = duracion.plus(Duration.between(horaInicio, horaFinManhana));
+            if ((isPeriodoCompleto(horaInicioDescanso, horaFinDescanso) && isPeriodoCorrecto(horaInicioDescanso, horaFinDescanso))) {
+                duracion = duracion.minus(Duration.between(horaInicioDescanso, horaFinDescanso));
+            }
+        }
+        if (isTardeCorrecta()) {
+            duracion = duracion.plus(Duration.between(horaInicioTarde, horaFin));
+        }
+        tiempoTrabajoEfectivo = duracion;
     }
 }
